@@ -19,16 +19,20 @@ class usuariosModel extends Model{
     }
 
     public static function obtenerUsuariosFecha($fecha1,$fecha2,$letra){
-        
-        $sql = "SELECT * FROM usuarios WHERE DATE(fechaRegistro) between '?' AND '2020-06-03' ";
-        // $sql = 'SELECT * FROM usuarios WHERE (fechaRegistro BETWEEN "?" AND "?" ) AND Nombre LIKE "?%" ';
-        $result= DB::select($sql,[$fecha1]);
+        $sql = 'SELECT * FROM usuarios WHERE (fechaRegistro BETWEEN "?" AND "?" ) AND Nombre LIKE "?%" ';
+        $result= DB::select($sql,[$fecha1,$fecha2,$letra]);
         return $result;
     }
 
     public static function usuariosMayorPuntaje($disfraz){
         $sql = "SELECT * FROM usuarios INNER JOIN partidas ON usuarios.id = partidas.idJugador WHERE usuarios.idDisfraz = ? ORDER BY partidas.puntos DESC LIMIT 10 ";
         $result= DB::select($sql,[$disfraz]);
+        return $result;
+    }
+
+    public static function PromedioTiempo($id){
+        $sql = "SELECT fechaFin - fechaInicio AS diferencia FROM partidas INNER JOIN usuarios ON partidas.idJugador = usuarios.id WHERE usuarios.id = ?";
+        $result= DB::select($sql,[$id]);
         return $result;
     }
 
