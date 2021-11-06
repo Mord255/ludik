@@ -18,9 +18,9 @@ class usuariosModel extends Model{
         return $result;
     }
 
-    public static function obtenerUsuariosFecha($fecha1,$fecha2,$letra){
-        $sql = 'SELECT * FROM usuarios WHERE (fechaRegistro BETWEEN "?" AND "?" ) AND Nombre LIKE "?%" ';
-        $result= DB::select($sql,[$fecha1,$fecha2,$letra]);
+    public static function obtenerUsuariosFecha($letra,$fecha1,$fecha2){
+        $sql = 'SELECT * FROM usuarios WHERE Nombre LIKE "?%" AND (fechaRegistro BETWEEN "?" AND "?" )   ';
+        $result= DB::select($sql,[$letra,$fecha1,$fecha2]);
         return $result;
     }
 

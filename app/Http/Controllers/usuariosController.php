@@ -15,7 +15,7 @@ class usuariosController extends Controller{
     }
 
     public function obtenerUsuariosFecha(Request $request,$fecha1,$fecha2,$letra){
-        $data = usuariosModel::obtenerUsuariosFecha($fecha1,$fecha2,$letra);
+        $data = usuariosModel::obtenerUsuariosFecha($letra,$fecha1,$fecha2);
         dd($data);
         
     }
