@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mostrarUsuarios', 'usuariosController@mostrarUsuarios')->name('mostrarUsuarios');
-Route::get('/obtenerUsuariosFecha', 'usuariosController@obtenerUsuariosFecha')->name('obtenerUsuariosFecha');
-Route::get('/usuariosMayorPuntaje', 'usuariosController@usuariosMayorPuntaje')->name('usuariosMayorPuntaje');
+Route::get('/mostrarUsuarios/{acepto}', 'usuariosController@mostrarUsuarios')->name('mostrarUsuarios');
+Route::get('/obtenerUsuariosFecha/{fecha1}/{fecha2}/{letra}', 'usuariosController@obtenerUsuariosFecha')->name('obtenerUsuariosFecha');
+Route::get('/usuariosMayorPuntaje/{disfraz}', 'usuariosController@usuariosMayorPuntaje')->name('usuariosMayorPuntaje');
+Route::get('/PromedioTiempo/{id}', 'usuariosController@PromedioTiempo')->name('PromedioTiempo');

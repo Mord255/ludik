@@ -8,26 +8,26 @@ use Illuminate\Http\Request;
 
 class usuariosController extends Controller{
 
-    public function mostrarUsuarios(Request $request){
+    public function mostrarUsuarios(Request $request,$acepto){
         $data = usuariosModel::mostrarUsuarios($acepto);
         dd($data);
         
     }
 
-    public function obtenerUsuariosFecha(Request $request){
-        $data = usuariosModel::obtenerUsuariosFecha("2020-06-01","2020-06-03","J");
+    public function obtenerUsuariosFecha(Request $request,$fecha1,$fecha2,$letra){
+        $data = usuariosModel::obtenerUsuariosFecha($fecha1,$fecha2,$letra);
         dd($data);
         
     }
 
-    public function usuariosMayorPuntaje(Request $request){
-        $data = usuariosModel::usuariosMayorPuntaje(2);
+    public function usuariosMayorPuntaje(Request $request,$disfraz){
+        $data = usuariosModel::usuariosMayorPuntaje($disfraz);
         dd($data);
         
     }
 
-    public function PromedioTiempo(Request $request){
-        $data = usuariosModel::PromedioTiempo(2);
+    public function PromedioTiempo(Request $request,$id){
+        $data = usuariosModel::PromedioTiempo($id);
         dd($data);
         
     }
